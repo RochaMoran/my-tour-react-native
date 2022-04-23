@@ -1,8 +1,5 @@
 import { StyleSheet } from "react-native";
-
-const colors: any = {
-  primary: "#23823d",
-};
+import { colors } from "./global";
 
 export const styles = StyleSheet.create({
   container: {
@@ -37,15 +34,6 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 20,
-  },
-  button: {
-    width: "99%",
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: "center",
-    marginVertical: 7,
-    padding: 10,
-    borderRadius: 15,
   },
   buttonGoogle: {
     backgroundColor: "white",
