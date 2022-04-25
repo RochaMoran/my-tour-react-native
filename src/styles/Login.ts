@@ -11,14 +11,12 @@ export const styles = StyleSheet.create({
         backgroundColor: colors.primary,
         height: "20%",
     },
-    loginHeaderBack: {
-        margin: 20
-    },
     loginHeaderTitle: {
         marginHorizontal: 20,
         fontWeight: "bold",
         fontSize: 30,
         color: "white",
+        marginTop: 25,
         zIndex: 5
     },
     loginHeaderWave: {

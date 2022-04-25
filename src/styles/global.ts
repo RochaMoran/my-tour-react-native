@@ -6,7 +6,6 @@ export const colors: any = {
 
 export const globalStyles = StyleSheet.create({
   container: {
-    paddingTop: 35,
   },
   button: {
     width: "99%",
