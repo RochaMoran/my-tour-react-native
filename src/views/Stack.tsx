@@ -27,6 +27,7 @@ export default function StackViews() {
                   },
                   headerShadowVisible: false,
                   headerBackTitleVisible: false,
+                  animationTypeForReplace: isLogged ? 'pop' : 'push',
                 }}
               />
             ))
@@ -43,6 +44,7 @@ export default function StackViews() {
                   },
                   headerShadowVisible: false,
                   headerBackTitleVisible: false,
+                  animationTypeForReplace: isLogged ? 'pop' : 'push',
                 }}
               />
             ))}

@@ -1,5 +1,5 @@
 import { appState } from '../helpers/const/appState'
-import {Welcome, Register, Login} from './index';
+import {Welcome, Register, Login, Home} from './index';
 
 export const Routes:appState["routes"] = {
     root: [
@@ -18,8 +18,8 @@ export const Routes:appState["routes"] = {
     ],
     auth: [
         {
-            name: "Welcome",
-            component: Welcome, 
+            name: "Home",
+            component: Home, 
         },
     ]
 }
