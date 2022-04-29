@@ -15,6 +15,10 @@ export const Routes:appState["routes"] = {
             name: "Login",
             component: Login, 
         },
+        {
+            name: "Home",
+            component: Home, 
+        },
     ],
     auth: [
         {

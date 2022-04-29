@@ -4,7 +4,7 @@ import { styles } from "../styles/Login";
 import Svg, { Path } from 'react-native-svg';
 import { Link } from "@react-navigation/native";
 
-export default function Login () {
+export default function Login ({navigation}:any) {
     return (
         <View style={[globalStyles.container, styles.container]}>
             <View style={styles.loginHeader}>
@@ -24,7 +24,7 @@ export default function Login () {
                     <Text style={styles.labelLogin}>Contraseña</Text>
                     <TextInput style={styles.inputLogin} placeholder="Ingrese su contraseña" autoCapitalize="none" autoCompleteType="off" secureTextEntry={true} />
                     <Text style={styles.forgetPassword}>Olvidaste tu contraseña?</Text>
-                    <TouchableOpacity style={[globalStyles.button, styles.buttonLogin]}>
+                    <TouchableOpacity style={[globalStyles.button, styles.buttonLogin]} onPress={() => navigation.navigate("Home")}>
                         <Text style={styles.textButtonLogin}>Iniciar Sesion</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[globalStyles.button, styles.buttonLoginGoogle]}>
