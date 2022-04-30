@@ -1,10 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { View, Text } from "react-native"
 import { styles } from "../../styles/TabBar"
 import { Home, CreateSite, Search, MySites, Profile } from "../../views"
-import ItemBarButton from "../atoms/itemBarButton"
 import Icon from 'react-native-vector-icons/FontAwesome'
-import CreateSiteButton from "../atoms/createSiteButton"
+import { ItemBarButton, CreateSiteButton } from "../atoms"
 
 const Tab = createBottomTabNavigator()
 

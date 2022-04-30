@@ -4,12 +4,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Routes } from "./data";
 import { appState } from "../helpers/const/appState";
 import { colors } from "../styles/global";
-import Tabs from "../components/moleculs/tabs";
+import useUser from "../hooks/useUser";
 
 const Stack = createNativeStackNavigator();
 
 export default function StackViews() {
-  const isLogged: boolean = true;
+  const { isLogged } = useUser()
 
   return (
     <NavigationContainer>

@@ -1,7 +1,6 @@
 import { View, Text, ImageBackground, TouchableOpacity, Alert } from "react-native";
 import { styles } from "../../styles/Home";
 import Icon from 'react-native-vector-icons/FontAwesome'
-import { Button } from 'react-native-elements'
 
 interface interfaceSite {
     site: string,

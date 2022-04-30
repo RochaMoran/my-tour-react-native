@@ -1,10 +1,10 @@
 import { ScrollView, StatusBar } from "react-native";
 import { styles } from "../styles/Home";
 import { colors, globalStyles } from "../styles/global";
-import HeaderHome from "../components/organims/headerHome";
 import BodyHome from "../components/organims/bodyHome";
+import HeaderHome from "../components/organims/headerHome";
 
-export default function Home({navigation}:any) {
+export default function Home() {
   return (
     <ScrollView style={[globalStyles.container, styles.container]}>
       <StatusBar backgroundColor={colors.primary}/>

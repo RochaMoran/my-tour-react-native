@@ -1,10 +1,13 @@
-import { View, Text, Image, TextInput, TouchableOpacity, Alert } from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { globalStyles } from "../styles/global";
 import { styles } from "../styles/Login";
 import Svg, { Path } from 'react-native-svg';
 import { Link } from "@react-navigation/native";
+import useUser from "../hooks/useUser";
 
-export default function Login ({navigation}:any) {
+export default function Login () {
+    const { login } = useUser()
+
     return (
         <View style={[globalStyles.container, styles.container]}>
             <View style={styles.loginHeader}>
@@ -24,7 +27,7 @@ export default function Login ({navigation}:any) {
                     <Text style={styles.labelLogin}>Contraseña</Text>
                     <TextInput style={styles.inputLogin} placeholder="Ingrese su contraseña" autoCapitalize="none" autoCompleteType="off" secureTextEntry={true} />
                     <Text style={styles.forgetPassword}>Olvidaste tu contraseña?</Text>
-                    <TouchableOpacity style={[globalStyles.button, styles.buttonLogin]} onPress={() => navigation.navigate("Home")}>
+                    <TouchableOpacity style={[globalStyles.button, styles.buttonLogin]} onPress={() => login()}>
                         <Text style={styles.textButtonLogin}>Iniciar Sesion</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[globalStyles.button, styles.buttonLoginGoogle]}>

@@ -1,8 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
+import UserContextProvider from './src/context/userContext';
 import StackViews from './src/views/Stack';
 
 export default function App() {
   return (
-    <StackViews />
+    <UserContextProvider>
+      <StackViews />
+    </UserContextProvider>
   );
 }

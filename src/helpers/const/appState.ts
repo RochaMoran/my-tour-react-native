@@ -6,5 +6,13 @@ export interface appState {
     routes: {
         auth: Array<appState["itemRoute"]>,
         root: Array<appState["itemRoute"]>
+    },
+    context: {
+        children: JSX.Element
+    },
+    interfaceSite: {
+        title: string;
+        children: any;
+        [x: string]: any;
     }
 }
