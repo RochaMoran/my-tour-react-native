@@ -1,3 +1,4 @@
+import Tabs from '../components/moleculs/tabs';
 import { appState } from '../helpers/const/appState'
 import {Welcome, Register, Login, Home} from './index';
 
@@ -15,15 +16,11 @@ export const Routes:appState["routes"] = {
             name: "Login",
             component: Login, 
         },
-        {
-            name: "Home",
-            component: Home, 
-        },
     ],
     auth: [
         {
-            name: "Home",
-            component: Home, 
-        },
+            name: "Tabs",
+            component: Tabs, 
+        }
     ]
 }

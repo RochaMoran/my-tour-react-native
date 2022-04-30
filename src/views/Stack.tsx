@@ -4,23 +4,25 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Routes } from "./data";
 import { appState } from "../helpers/const/appState";
 import { colors } from "../styles/global";
+import Tabs from "../components/moleculs/tabs";
 
 const Stack = createNativeStackNavigator();
 
 export default function StackViews() {
-  const isLogged: boolean = false;
+  const isLogged: boolean = true;
 
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Welcome">
         {isLogged
-          ? Routes.auth.map((route: appState["itemRoute"], i: number) => (
+          ? ( Routes.auth.map((route: appState["itemRoute"], i: number) => (
               <Stack.Screen
                 key={i}
                 name={route.name}
                 component={route.component}
                 options={{
                   title: "",
+                  headerShown: false,
                   headerTintColor: "white",
                   headerStyle: {
                     backgroundColor: colors.primary,
@@ -30,7 +32,8 @@ export default function StackViews() {
                   animationTypeForReplace: isLogged ? 'pop' : 'push',
                 }}
               />
-            ))
+              ))
+          )
           : Routes.root.map((route: appState["itemRoute"], i: number) => (
               <Stack.Screen
                 key={i}
