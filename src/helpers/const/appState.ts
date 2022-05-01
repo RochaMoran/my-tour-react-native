@@ -14,5 +14,9 @@ export interface appState {
         title: string;
         children: any;
         [x: string]: any;
+    },
+    interfaceHeaderView: {
+        title: string,
+        create?: boolean
     }
 }

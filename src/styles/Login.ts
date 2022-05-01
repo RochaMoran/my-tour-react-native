@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors } from "./global";
+import { colors, globalStyles } from "./global";
 
 export const styles = StyleSheet.create({
     container: {
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
         borderTopEndRadius: 20,
         borderTopLeftRadius: 20,
         paddingTop: 30,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
     },
     loginBodyTitle: {
         fontSize: 25,
@@ -51,7 +51,7 @@ export const styles = StyleSheet.create({
     inputLogin: {
         borderBottomWidth: 1,
         paddingVertical: 5,
-        borderBottomColor: "rgba(112, 112, 112, .6)",
+        borderBottomColor: colors.border,
         fontSize: 15
     },
     forgetPassword: {
@@ -93,4 +93,24 @@ export const styles = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 15
     },
+    headerImage: {
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%"
+    },
+    headerImageContainer: {
+        
+    },
+    createSiteHeader: {
+        height: 150,
+    },
+    createSiteHeaderTitle: {
+        marginHorizontal: 0,
+        fontWeight: "bold",
+        fontSize: 25,
+        color: "white",
+        marginTop: 0,
+        marginVertical: 5,
+        zIndex: 5
+    }
 });
