@@ -15,7 +15,7 @@ export default function StackViews() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Welcome">
         {isLogged
-          ? ( Routes.auth.map((route: appState["itemRoute"], i: number) => (
+          ? ( Routes.auth.map((route: appState["interfaceItemRoute"], i: number) => (
               <Stack.Screen
                 key={i}
                 name={route.name}
@@ -34,7 +34,7 @@ export default function StackViews() {
               />
               ))
           )
-          : Routes.root.map((route: appState["itemRoute"], i: number) => (
+          : Routes.root.map((route: appState["interfaceItemRoute"], i: number) => (
               <Stack.Screen
                 key={i}
                 name={route.name}

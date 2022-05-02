@@ -2,7 +2,7 @@ import Tabs from '../components/moleculs/tabs';
 import { appState } from '../helpers/const/appState'
 import {Welcome, Register, Login, Home} from './index';
 
-export const Routes:appState["routes"] = {
+export const Routes:appState["interfaceRoutes"] = {
     root: [
         {
             name: "Welcome",
