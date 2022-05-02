@@ -39,5 +39,37 @@ export const styles = StyleSheet.create({
     openSite: {
         paddingVertical: 15,
         paddingRight: 10
+    },
+    viewContainerMap: {
+        height: 470
+    },
+    viewContainerMapExpand: {
+        height: 800,
+        backgroundColor: "white"
+    },
+    containerHeaderMap: {
+        flexDirection: 'row', 
+        justifyContent: 'space-between', 
+        alignItems: "flex-end",
+        marginVertical: 10
+    },
+    containerHeaderTitleMap: {
+        fontWeight: "bold",
+        fontSize: 15
+    },
+    containerHeaderButtonMap: {
+        backgroundColor: colors.primary,
+        paddingHorizontal: 15,
+        paddingVertical: 5,
+        borderRadius: 15
+    },
+    containerHeaderButtonTextMap: {
+        color: "white"
+    },
+    map: {
+        alignSelf: 'stretch', height: 200
+    },
+    mapExtend: {
+        alignSelf: 'stretch', height: 700
     }
 });
