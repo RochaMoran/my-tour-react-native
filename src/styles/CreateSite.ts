@@ -70,6 +70,6 @@ export const styles = StyleSheet.create({
         alignSelf: 'stretch', height: 200
     },
     mapExtend: {
-        alignSelf: 'stretch', height: 700
+        alignSelf: 'stretch', height: 500
     }
 });
