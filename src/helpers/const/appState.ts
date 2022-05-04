@@ -21,6 +21,7 @@ export interface appState {
     },
     interfaceSiteCreate: {
         name?: string,
+        imgUrl: any,
         country?: string,
         vaccineCovid?: boolean,
         faceMask?: boolean,
@@ -46,5 +47,16 @@ export interface appState {
         },
         updateOpen: any,
         updateClose: any
+    },
+    interfaceSiteHome: {
+        name?: string,
+        country?: string,
+        imgUrl?: any,
+        type: string,
+    },
+    interfaceContainerSite: {
+        type: string,
+        title: string,
+        sites: any
     }
 }
