@@ -38,15 +38,26 @@ export const styles = StyleSheet.create({
     searchItemTextSelected: {
         color: "black"
     },
-    siteResult: {
-        backgroundColor: "#e0e0e0",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: 5,
+    containerSiteResult: {
+        backgroundColor: "#ebebeb",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        
+        elevation: 4,
+        padding: 10,
         borderRadius: 5,
         marginHorizontal: 10,
         marginVertical: 5
+    },
+    siteResult: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
     },
     siteResultImage: {
         width: "35%",
@@ -95,5 +106,17 @@ export const styles = StyleSheet.create({
     },
     statusObligatory: {
         color: "#1b0991"
+    },
+    containerActions: {
+        flexDirection: "row",
+        marginTop: 10,
+        borderRadius: 10,
+        padding: 5,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white"
+    },
+    actionsItem: {
+        marginHorizontal: 10
     }
 });

@@ -58,5 +58,10 @@ export interface appState {
         type: string,
         title: string,
         sites: any
+    },
+    interfaceMySites: {
+        site: appState["interfaceSiteCreate"],
+        destroy?:any,
+        update?:any
     }
 }

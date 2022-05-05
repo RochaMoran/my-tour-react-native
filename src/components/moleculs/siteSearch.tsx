@@ -1,11 +1,14 @@
 import React from 'react'
-import { View, Image, Text } from 'react-native'
+import { View, Image, Text, TouchableOpacity } from 'react-native'
 import { styles } from '../../styles/Search'
 import IconFA5 from 'react-native-vector-icons/FontAwesome5'
 import IconF from 'react-native-vector-icons/Fontisto'
+import IconA from 'react-native-vector-icons/AntDesign'
+import { appState } from '../../helpers/const/appState'
 
-export default function SiteSearch ({site}:any) {
+export default function SiteSearch ({site, update, destroy}:appState["interfaceMySites"]) {
     return (
+      <View style={styles.containerSiteResult}>
         <View style={styles.siteResult}>
           <Image
             style={styles.siteResultImage}
@@ -38,5 +41,16 @@ export default function SiteSearch ({site}:any) {
             <Text style={styles.siteItemText}>Cierra: {site.closeTimes}</Text>
           </View>
         </View>
+        {
+          (destroy && update) && <View style={styles.containerActions}>
+            <TouchableOpacity style={styles.actionsItem} onPress={destroy}>
+              <IconA name="delete" size={20} color="red" />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.actionsItem} onPress={update}>
+              <IconA name="edit" size={20} color="blue" />
+            </TouchableOpacity>
+          </View>
+        }
+      </View>
     )
 }
