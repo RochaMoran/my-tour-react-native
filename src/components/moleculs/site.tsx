@@ -3,9 +3,12 @@ import { styles } from "../../styles/Home";
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { appState } from "../../helpers/const/appState";
 
-export default function Site ({name, country, imgUrl, type }:appState["interfaceSiteHome"]) {
+export default function Site ({redirectSite, name, country, imgUrl, type }:appState["interfaceSiteHome"]) {
     return (
-        <View style={type === "lg" ? styles.lgCard : styles.highCard}>
+        <TouchableOpacity style={type === "lg" ? styles.lgCard : styles.highCard} onPress={() => redirectSite.navigate('SeeSite', {
+          id: 1,
+          name: name,
+        })}>
         <ImageBackground source={{
           uri: imgUrl
           
@@ -22,6 +25,6 @@ export default function Site ({name, country, imgUrl, type }:appState["interface
             <Text style={styles.lgCardUbication}>{country}</Text>
           </View>
         </ ImageBackground>
-      </View>
+      </TouchableOpacity>
     )
 }

@@ -1,6 +1,6 @@
 import Tabs from '../components/moleculs/tabs';
 import { appState } from '../helpers/const/appState'
-import {Welcome, Register, Login, Home} from './index';
+import {Welcome, Register, Login, SeeSite} from './index';
 
 export const Routes:appState["interfaceRoutes"] = {
     root: [
@@ -21,6 +21,10 @@ export const Routes:appState["interfaceRoutes"] = {
         {
             name: "Tabs",
             component: Tabs, 
-        }
+        },
+        {
+            name: "SeeSite",
+            component: SeeSite, 
+        },
     ]
 }

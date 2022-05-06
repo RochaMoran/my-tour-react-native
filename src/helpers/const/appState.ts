@@ -27,7 +27,7 @@ export interface appState {
         faceMask?: boolean,
         statusOpen?: boolean,
         openTimes?: string,
-        closeTimes?: string
+        closeTimes?: string,
     },
     interfaceSwitchControl: {
         title: string,
@@ -53,11 +53,13 @@ export interface appState {
         country?: string,
         imgUrl?: any,
         type: string,
+        redirectSite?: any
     },
     interfaceContainerSite: {
         type: string,
         title: string,
-        sites: any
+        sites: any,
+        redirectSite?: any,
     },
     interfaceMySites: {
         site: appState["interfaceSiteCreate"],

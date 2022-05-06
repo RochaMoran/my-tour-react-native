@@ -5,6 +5,7 @@ import IconFA5 from 'react-native-vector-icons/FontAwesome5'
 import IconF from 'react-native-vector-icons/Fontisto'
 import IconA from 'react-native-vector-icons/AntDesign'
 import { appState } from '../../helpers/const/appState'
+import truncateText from '../../helpers/funtions/truncateText'
 
 export default function SiteSearch ({site, update, destroy}:appState["interfaceMySites"]) {
     return (
@@ -18,7 +19,7 @@ export default function SiteSearch ({site, update, destroy}:appState["interfaceM
           />
           <View>
             <View style={styles.containerBasicInfo}>
-              <Text style={styles.titleItemSite}>{site.name}</Text>
+              <Text style={styles.titleItemSite}>{truncateText(site.name)}</Text>
               <Text style={styles.siteItemText}>{site.country}</Text>
             </View>
             <View style={styles.containerCovidInfo}>
