@@ -20,6 +20,7 @@ import TimePicker from "../components/atoms/timePicker";
 export default function CreateSite() {
   const [site, setSite] = useState<appState["interfaceSiteCreate"]>({
     name: "",
+    imgUrl: "",
     country: "",
     vaccineCovid: false,
     faceMask: false,

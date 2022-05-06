@@ -1,10 +1,12 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { styles } from "../../styles/TabBar"
-import { Home, CreateSite, Search, MySites, Profile } from "../../views"
+import { Home, CreateSite, Search, MySites, Profile, SeeSite } from "../../views"
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { ItemBarButton, CreateSiteButton } from "../atoms"
 
 const Tab = createBottomTabNavigator()
+const Stack = createNativeStackNavigator()
 
 export default function Tabs () {
     return (

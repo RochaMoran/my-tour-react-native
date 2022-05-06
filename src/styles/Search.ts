@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: "center",
-    padding: 5
+    padding: 5,
+    height: 50
    },
    searchButton: {
        marginHorizontal: 20,
@@ -18,13 +19,14 @@ export const styles = StyleSheet.create({
         width: "75%",
    },
    searchTab: {
-    backgroundColor: colors.primary,
+       backgroundColor: colors.primary,
     paddingVertical: 10,
-
+    height: 10
    },
    searchTabItem: {
     marginHorizontal: 20,
     padding: 5,
+    height: 35,
     },
     searchTabItemText: {
         textTransform: "uppercase" ,
@@ -75,6 +77,7 @@ export const styles = StyleSheet.create({
         color: "#5e5e5e"
     },
     containerResults: {
+        height: "80%"
     },
     containerBasicInfo: {
 
