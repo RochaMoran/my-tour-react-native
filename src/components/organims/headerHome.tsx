@@ -1,15 +1,16 @@
-import { View, Text, ImageBackground } from "react-native";
+import { View, Text, ImageBackground, AppState } from "react-native";
+import { appState } from "../../helpers/const/appState";
 import { styles } from "../../styles/Home";
 
-export default function HeaderHome () {
+export default function HeaderHome ({imgUrl, title, subTitle, stylesHeader}:appState["headerHome"]) {
     return (
-        <View style={styles.header}>
+        <View style={[styles.header, stylesHeader?.header]}>
         <ImageBackground source={{
-          uri: "http://c.files.bbci.co.uk/E02E/production/_102809375_machu.jpg"
+          uri: imgUrl
           
-        }} blurRadius={1} style={styles.headerImage}>
-          <Text style={styles.headerTitle}>Pasea por el mundo...</Text>
-          <Text style={styles.headerContent}>El viajero ve lo que ve, el turista ve lo que ha venido a ver</Text>
+        }} blurRadius={1} style={[styles.headerImage, stylesHeader?.headerImage]}>
+          <Text style={styles.headerTitle}>{title}</Text>
+          <Text style={styles.headerContent}>{subTitle}</Text>
         </ ImageBackground>
       </View>
     )

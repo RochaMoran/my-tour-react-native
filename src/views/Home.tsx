@@ -9,7 +9,7 @@ export default function Home({navigation}:any) {
   return (
     <ScrollView style={[globalStyles.container, styles.container]}>
       <StatusBar backgroundColor={colors.primary}/>
-      <HeaderHome />
+      <HeaderHome imgUrl="http://c.files.bbci.co.uk/E02E/production/_102809375_machu.jpg" title="Pasea por el mundo..." subTitle="El viajero ve lo que ve, el turista ve lo que ha venido a ver" />
       <BodyHome sites={sites} redirectSite={navigation} />
     </ScrollView>
   );

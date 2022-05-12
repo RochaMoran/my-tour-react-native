@@ -14,6 +14,7 @@ export default function ContainerSitesType({
       {sites.map((site: appState["interfaceSiteCreate"], index: number) => (
         <Site
           key={index}
+          id={site.id}
           type={type}
           name={site.name}
           imgUrl={site.imgUrl}

@@ -20,6 +20,7 @@ export interface appState {
         create?: boolean
     },
     interfaceSiteCreate: {
+        id?: number,
         name?: string,
         imgUrl: any,
         country?: string,
@@ -49,6 +50,7 @@ export interface appState {
         updateClose: any
     },
     interfaceSiteHome: {
+        id?: number,
         name?: string,
         country?: string,
         imgUrl?: any,
@@ -65,5 +67,11 @@ export interface appState {
         site: appState["interfaceSiteCreate"],
         destroy?:any,
         update?:any
+    },
+    headerHome: {
+        imgUrl?: string,
+        title?: string,
+        subTitle: string,
+        stylesHeader?:any
     }
 }
