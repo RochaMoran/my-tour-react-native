@@ -27,6 +27,7 @@ export const styles = StyleSheet.create({
         top: 55
     },
     loginBody: {
+        minHeight: 450,
         height: "80%",
         backgroundColor: "white",
         borderTopEndRadius: 20,
@@ -112,5 +113,18 @@ export const styles = StyleSheet.create({
         marginTop: 0,
         marginVertical: 5,
         zIndex: 5
+    },
+    inputLoginError: {
+        borderBottomColor: 'red'
+    },
+    messageError: {
+        display: 'flex',
+        color: 'red'
+    },
+    messageErrorHide: {
+        display: 'none'
+    },
+    centerMessageError: {
+        textAlign: 'center'
     }
 });
