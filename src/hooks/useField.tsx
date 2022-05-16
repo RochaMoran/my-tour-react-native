@@ -1,4 +1,12 @@
-export default function useField (state:any, setState:any) {
+import { useEffect, useState } from "react"
+
+export default function useField (state:any, setState:any, action:any) {
+    const [isSucces, setIsSucces] = useState<boolean>(false)
+
+    useEffect(() => {
+        return () => action()
+    }, [isSucces])
+
     function handleInput (name:string, value:any) {
         if(name === 'password') {
             let passValidateResp = validatePassword(value)
@@ -50,14 +58,23 @@ export default function useField (state:any, setState:any) {
           }
     }
 
-    function handleSubmit (validate:any) {
-        if(validate){
+    async function handleSubmit (objectParams:any) {
+        if(objectParams.validated){
             setState({
                 ...state,
                 error: 'Favor, revise sus campos'
             })
         } else {
-            console.log(state)
+            let response = await objectParams.peticionFunction(state, objectParams.url)
+            console.log(response)
+            if(response.ok) {
+                setIsSucces(true)
+            }
+
+            setState({
+                ...state,
+                error: response.msg || "Ha ocurrido un error al hacer la peticion"
+            })
         }
     }
 
