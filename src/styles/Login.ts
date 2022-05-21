@@ -126,5 +126,8 @@ export const styles = StyleSheet.create({
     },
     centerMessageError: {
         textAlign: 'center'
+    },
+    buttonLogOut: {
+        backgroundColor: "red"
     }
 });

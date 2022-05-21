@@ -10,10 +10,17 @@ export const postUser = async (dataParam: any, url: string) => {
   };
 
   const peticion = await axios.post(
-    `http://192.168.1.6:19002/api/${url}`,
+    `http://192.168.1.6:5500/api/${url}`,
     body,
     config
   );
   const { data } = peticion;
   return data;
 };
+
+export const getPeticion = async (url:string, config:any) => {
+  const peticion = await axios.get(`http://192.168.1.6:5500/api/${url}`, config);
+  const {data} = peticion;
+
+  return data;
+}

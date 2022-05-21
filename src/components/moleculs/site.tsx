@@ -6,7 +6,7 @@ import { appState } from "../../helpers/const/appState";
 export default function Site ({id, redirectSite, name, country, imgUrl, type }:appState["interfaceSiteHome"]) {
     return (
         <TouchableOpacity style={type === "lg" ? styles.lgCard : styles.highCard} onPress={() => redirectSite.navigate('SeeSite', {
-          id: 1
+          id: id
         })}>
         <ImageBackground source={{
           uri: imgUrl

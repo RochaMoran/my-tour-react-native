@@ -20,7 +20,7 @@ export interface appState {
         create?: boolean
     },
     interfaceSiteCreate: {
-        id?: number,
+        _id?: number,
         name?: string,
         imgUrl: any,
         country?: string,

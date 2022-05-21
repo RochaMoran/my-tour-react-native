@@ -3,15 +3,12 @@ import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { globalStyles } from "../styles/global";
 import { styles } from "../styles/Login";
 import { Link } from "@react-navigation/native";
-import useUser from "../hooks/useUser";
 import HeaderView from "../components/atoms/headerView";
 import useField from "../hooks/useField";
 import TextErrorForm from '../components/atoms/textErrorForm';
-import { postUser } from '../helpers/funtions/postUser';
+import { postUser } from '../helpers/funtions/petitions';
 
 export default function Login() {
-  const { login } = useUser();
-  const [isLogged, setIsLogged] = useState<any>(false)
   const [form, setForm] = useState<any>({
     email: {
       value: '',
@@ -23,14 +20,14 @@ export default function Login() {
     },
     error: ''
   })
-  const { handleInput, handleSubmit } = useField(form, setForm, login)
+  const { handleInput, handleLoginSubmit } = useField(form, setForm)
   const paramAuth = {
     validated: (form.error || (!form.email.value || !form.password.value)), 
     peticionFunction: postUser, 
     url: 'users/login'
   }
 
-  const signIn = async () => {
+  const signInWithGoogle = async () => {
    
   }
 
@@ -64,13 +61,13 @@ export default function Login() {
           <TextErrorForm cls={styles.centerMessageError} error={form.error} />
           <TouchableOpacity
             style={[globalStyles.button, styles.buttonLogin]}
-            onPress={() => handleSubmit(paramAuth)}
+            onPress={() => handleLoginSubmit(paramAuth)}
           >
             <Text style={styles.textButtonLogin}>Iniciar Sesion</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[globalStyles.button, styles.buttonLoginGoogle]}
-            onPress={signIn}
+            onPress={signInWithGoogle}
           >
             <Text style={styles.textButtonLoginGoogle}>Iniciar con google</Text>
           </TouchableOpacity>

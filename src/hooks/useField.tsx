@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react"
+import useUser from "./useUser"
 
-export default function useField (state:any, setState:any, action:any) {
-    const [isSucces, setIsSucces] = useState<boolean>(false)
-
+export default function useField (state:any, setState:any) {
+    const [isSucces, setIsSucces] = useState<any>({
+        value: false,
+        token: {}
+    })
+    const { login } = useUser()
+   
     useEffect(() => {
-        return () => action()
+        isSucces.value && login(isSucces.token)
     }, [isSucces])
 
     function handleInput (name:string, value:any) {
@@ -58,7 +63,7 @@ export default function useField (state:any, setState:any, action:any) {
           }
     }
 
-    async function handleSubmit (objectParams:any) {
+    async function handleLoginSubmit (objectParams:any) {
         if(objectParams.validated){
             setState({
                 ...state,
@@ -66,9 +71,12 @@ export default function useField (state:any, setState:any, action:any) {
             })
         } else {
             let response = await objectParams.peticionFunction(state, objectParams.url)
-            console.log(response)
+
             if(response.ok) {
-                setIsSucces(true)
+                setIsSucces({
+                    value: true,
+                    token: response.token
+                })
             }
 
             setState({
@@ -80,6 +88,6 @@ export default function useField (state:any, setState:any, action:any) {
 
     return {
         handleInput,
-        handleSubmit
+        handleLoginSubmit
     }
 }
