@@ -3,9 +3,11 @@ import {Alert, ToastAndroid} from 'react-native'
 import { requestMediaLibraryPermissionsAsync, launchImageLibraryAsync, MediaTypeOptions } from 'expo-image-picker'
 import useLocation from './useLocation'
 import { createSite } from '../helpers/funtions/petitions'
+import useUser from './useUser'
 
 export default function useCreateSite () {
     const { location, updateCoordinates } = useLocation();
+    const { jwt } = useUser()
     const [site, setSite] = useState<any>({
         image: {
             value: {
@@ -47,7 +49,7 @@ export default function useCreateSite () {
             value: '',
             error: ''
         },
-        createdBy: '628284cdca1078f744c5547e'
+        createdBy: jwt.user._id
     })
     const [countries, setCountries] = useState<any>()
 
@@ -109,7 +111,7 @@ export default function useCreateSite () {
     
     async function handleSubmitSite () {
         if(validateImage() && validateText("name") && validateText("description") && validateText("country") && validateText("openTimes") && validateText("closeTimes")) {
-            let resp = await createSite({site, location})
+            let resp = await createSite({site, location, jwt})
             
             if(resp.ok) {
                 ToastAndroid.show("Sitio creado exitosamente", ToastAndroid.SHORT);

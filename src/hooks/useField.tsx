@@ -75,7 +75,7 @@ export default function useField (state:any, setState:any) {
             if(response.ok) {
                 setIsSucces({
                     value: true,
-                    token: response.token
+                    token: response
                 })
             }
 
