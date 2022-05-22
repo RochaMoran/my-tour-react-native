@@ -16,17 +16,6 @@ import useCreateSite from "../hooks/useCreateSite";
 import TextErrorForm from "../components/atoms/textErrorForm";
 
 export default function CreateSite() {
-  // const [site, setSite] = useState<appState["interfaceSiteCreate"]>({
-  //   name: "",
-  //   imgUrl: "",
-  //   country: "",
-  //   vaccineCovid: false,
-  //   faceMask: false,
-  //   statusOpen: false,
-  //   openTimes: "",
-  //   closeTimes: "",
-  // });
-
   const { countries, site, updateAttributteSite, handleSubmitSite, uploadImage, location, updateCoordinates } = useCreateSite();
   const { updateOpen, updateClose, updateShow, show } = useTime(site, updateAttributteSite);
 
@@ -36,18 +25,18 @@ export default function CreateSite() {
       <View style={styles.bodyCreateSite}>
         <TextErrorForm error={site.image.error}/>
         <ScrollView>
-          <Text style={stylesLogin.labelLogin}>Nombre del sitio</Text>
+          <Text style={[stylesLogin.labelLogin, styles.labelCreateSite]}>Nombre del sitio</Text>
           <TextInput
-            style={stylesLogin.inputLogin}
+            style={[stylesLogin.inputLogin, styles.inputCreateSite]}
             placeholder="Ejemplo: Río San juan"
             autoCapitalize="none"
             autoCompleteType="off"
             onChangeText={text => updateAttributteSite("name", text)}
           />
           <TextErrorForm error={site.name.error}/>
-          <Text style={stylesLogin.labelLogin}>Describa su sitio</Text>
+          <Text style={[stylesLogin.labelLogin, styles.labelCreateSite]}>Describa su sitio</Text>
           <TextInput
-            style={stylesLogin.inputLogin}
+            style={[stylesLogin.inputLogin, styles.inputCreateSite]}
             placeholder="Ejemplo: un lugar para los niños, atractivo y turístico"
             autoCapitalize="none"
             autoCompleteType="off"

@@ -33,7 +33,7 @@ export default function MapCreateSite({location, update}:any) {
           update &&  <Marker
           coordinate={location}
           draggable={true}
-          onDrag={(e) =>
+          onDragEnd={(e) =>
             update(
               e.nativeEvent.coordinate.latitude,
               e.nativeEvent.coordinate.longitude

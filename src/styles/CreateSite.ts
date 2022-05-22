@@ -21,7 +21,10 @@ export const styles = StyleSheet.create({
     borderBottomColor: colors.border,
     borderBottomWidth: 1,
   },
-  pickerCountry: {},
+  pickerCountry: {
+    right: 10,
+    width: "105%",
+  },
   vacuneContainer: {
     flexDirection: "row",
     paddingVertical: 5,
@@ -41,8 +44,12 @@ export const styles = StyleSheet.create({
     height: 470,
   },
   viewContainerMapExpand: {
-    height: 800,
+    position: "absolute",
+    top: 0,
+    width: "100%",
+    height: 600,
     backgroundColor: "white",
+    zIndex: 5,
   },
   containerHeaderMap: {
     flexDirection: "row",
@@ -69,7 +76,8 @@ export const styles = StyleSheet.create({
   },
   mapExtend: {
     alignSelf: "stretch",
-    height: 500,
+    height: 700,
+    width: "100%",
   },
   buttonSend: {
     backgroundColor: "green",
@@ -80,4 +88,11 @@ export const styles = StyleSheet.create({
     top: 0,
     right: 0,
   },
+  labelCreateSite: {
+    marginVertical: 0,
+    marginTop: 5
+  },
+  inputCreateSite: {
+    paddingVertical: 3,
+  }
 });
