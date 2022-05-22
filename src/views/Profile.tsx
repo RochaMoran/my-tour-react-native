@@ -6,6 +6,7 @@ import useUser from "../hooks/useUser";
 import HeaderView from "../components/atoms/headerView";
 
 export default function Profile() {
+  const { logout } = useUser()
   return (
     <View style={[globalStyles.container, styles.container]}>
       <HeaderView title="Editar Perfil" />
@@ -44,7 +45,7 @@ export default function Profile() {
             <Text style={styles.textButtonLogin}>Guardar Cambios</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[globalStyles.button, styles.buttonLogOut]}
+            style={[globalStyles.button, styles.buttonLogOut]} onPress={ () => logout()}
           >
             <Text style={styles.textButtonLogin}>Cerrar Sesión</Text>
           </TouchableOpacity>

@@ -29,8 +29,9 @@ export const getPeticion = async (url:string, config:any) => {
 export const createSite = async (data:any) => {
   const { latitude, longitude, latitudeDelta, longitudeDelta } = data.location;
   const { closeTimes, openTimes, country, description, name, faceMask, statusOpen, vaccineCovid, image, createdBy } = data.site;
+
   const config = {
-    headers: { 'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYyODI4NjVlMmZjZWRkMTk0ZDAzZTBiMSIsImVtYWlsIjoicm9jaGFtb3JhbjFAZ21haWwuY29tIiwiZ29vZ2xlIjpmYWxzZSwidmVyaWZpZWQiOjAsImNyZWF0ZWRBdCI6IjIwMjItMDUtMTZUMTc6MTQ6MDYuNjU2WiIsInVwZGF0ZWRBdCI6IjIwMjItMDUtMTZUMTc6MTQ6MzYuNzk2WiIsIl9fdiI6MH0sImlhdCI6MTY1MzA3MzM0MX0.MNbmUs7zzpawpWWemBmLLaj0sNPdPe_1QYdy-HSZ7BU` },
+    headers: { 'Authorization': `Bearer ${data.jwt.token}` },
   };
     const formData = new FormData();
     formData.append("name", name.value);
@@ -49,7 +50,7 @@ export const createSite = async (data:any) => {
     formData.append("longitudeDelta", longitudeDelta);
 
     try {
-      const data = await fetch(
+      const response = await fetch(
         `http://192.168.1.6:5500/api/sites/create`,
         {
           method: 'POST',
@@ -58,7 +59,7 @@ export const createSite = async (data:any) => {
         }
       ).then(resp => resp.json())
 
-      return data;
+      return response;
     } catch(e){
       console.log(e)
         return e;
