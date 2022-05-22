@@ -17,7 +17,9 @@ export interface appState {
     },
     interfaceHeaderView: {
         title: string,
-        create?: boolean
+        create?: boolean,
+        action?: any,
+        image?: string
     },
     interfaceSiteCreate: {
         _id?: number,

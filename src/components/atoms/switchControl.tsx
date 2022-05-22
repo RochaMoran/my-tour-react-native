@@ -6,7 +6,6 @@ import { colors } from "../../styles/global";
 
 export default function SwitchControl({
   title,
-  site,
   conditional,
   name,
   setSite,
@@ -20,7 +19,7 @@ export default function SwitchControl({
         thumbColor={conditional ? "#25592a" : "#f4f3f4"}
         ios_backgroundColor="#3e3e3e"
         onValueChange={() =>
-          setSite({ ...site, [name]: !conditional })
+          setSite(name, !conditional )
         }
         value={conditional}
       />

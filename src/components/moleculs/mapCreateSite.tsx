@@ -2,11 +2,9 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { styles } from "../../styles/CreateSite";
 import MapView, { Marker } from "react-native-maps";
 import { useState } from "react";
-import useLocation from "../../hooks/useLocation";
 
-export default function MapCreateSite() {
+export default function MapCreateSite({location, update}:any) {
   const [expandMap, setExpandMap] = useState<boolean>(false);
-  const { location, updateCoordinates } = useLocation();
 
   return (
     <ScrollView
@@ -31,16 +29,18 @@ export default function MapCreateSite() {
         region={location}
         style={expandMap ? styles.mapExtend : styles.map}
       >
-        <Marker
+        {
+          update &&  <Marker
           coordinate={location}
           draggable={true}
           onDrag={(e) =>
-            updateCoordinates(
+            update(
               e.nativeEvent.coordinate.latitude,
               e.nativeEvent.coordinate.longitude
             )
           }
         />
+        }
       </MapView>
     </ScrollView>
   );

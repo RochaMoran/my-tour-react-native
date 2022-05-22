@@ -1,17 +1,19 @@
-import { View, Text, ImageBackground } from "react-native";
+import { View, Text, ImageBackground, TouchableOpacity } from "react-native";
 import { styles } from "../../styles/Login";
 import Svg, { Path } from "react-native-svg";
 import { appState } from "../../helpers/const/appState";
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-export default function HeaderView({title, create}:appState["interfaceHeaderView"]) {
+export default function HeaderView({title, create, action, image}:appState["interfaceHeaderView"]) {
   return (
     <View style={create ? styles.createSiteHeader : styles.loginHeader}>
       {
         create ? (
-          <ImageBackground blurRadius={5} style={styles.headerImage} source={{uri: 'https://as01.epimg.net/diarioas/imagenes/2022/03/25/actualidad/1648212028_088443_1648212178_noticia_normal_recorte1.jpg'}}>
-            <Text style={[styles.loginHeaderTitle, styles.createSiteHeaderTitle]}>{title}</Text>
-            <Icon size={30} color="white" name="camera" />
+          <ImageBackground blurRadius={5} style={styles.headerImage} source={{uri: image || 'https://as01.epimg.net/diarioas/imagenes/2022/03/25/actualidad/1648212028_088443_1648212178_noticia_normal_recorte1.jpg'}}>
+            <TouchableOpacity style={{justifyContent: 'center', alignItems: 'center'}} onPress={() => action()}>
+              <Text style={[styles.loginHeaderTitle, styles.createSiteHeaderTitle]}>{title}</Text>
+              <Icon size={30} color="white" name="camera" />
+            </TouchableOpacity>
           </ImageBackground>
         ) : (
           <>

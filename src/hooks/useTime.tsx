@@ -32,10 +32,7 @@ export default function useTime(site: appState["interfaceSiteCreate"], setSite: 
         close: false,
       });
 
-      setSite({
-        ...site,
-        [type]: value,
-      });
+      setSite(type, value);
     }
   };
 
