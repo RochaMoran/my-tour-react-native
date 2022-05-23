@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { ToastAndroid } from "react-native"
 import useUser from "./useUser"
 
 export default function useField (state:any, setState:any) {
@@ -11,6 +12,29 @@ export default function useField (state:any, setState:any) {
     useEffect(() => {
         isSucces.value && login(isSucces.token)
     }, [isSucces])
+
+    function handleCode (value:any) {
+        if(value.length < 5) {
+            setState({
+                ...state,
+                code: {
+                    ...state.code,
+                    error: 'Su código no es valido'
+                }
+            })
+            return false;
+        } else {
+            setState({
+                ...state,
+                code: {
+                    value: value,
+                    error: ''
+                },
+                error: ""
+            })
+            return true;
+        }
+    }
 
     function handleInput (name:string, value:any) {
         if(name === 'password') {
@@ -73,21 +97,72 @@ export default function useField (state:any, setState:any) {
             let response = await objectParams.peticionFunction(state, objectParams.url)
 
             if(response.ok) {
+                return setIsSucces({
+                    value: true,
+                    token: response
+                })
+            } else {
+                return setState({
+                    ...state,
+                    error: response.msg || "Ha ocurrido un error al hacer la peticion"
+                })
+            }
+
+        }
+    }
+
+    async function handleRegisterSubmit (objectParams:any) {
+        if(objectParams.validated){
+            setState({
+                ...state,
+                error: 'Favor, revise sus campos'
+            })
+        } else {
+            let response = await objectParams.peticionFunction(state, objectParams.url)
+            
+            if(response.ok) {
+                ToastAndroid.show("Registrado pero no verificado", ToastAndroid.SHORT)
+                return objectParams.navigation.navigate("VerifiedAccount", {email: state.email.value})
+            } else {
+                return setState({
+                    ...state,
+                    error: response.msg || "Ha ocurrido un error al hacer la peticion"
+                })
+            }
+
+        }
+    }
+
+    async function handleVerifiedSubmit (objectParams:any) {
+        if(objectParams.validated){
+            setState({
+                ...state,
+                error: 'Su código no es valido'
+            })
+        } else {
+            let response = await objectParams.peticionFunction(state, objectParams.url)
+    
+            if(response.ok) {
                 setIsSucces({
                     value: true,
                     token: response
                 })
-            }
 
-            setState({
-                ...state,
-                error: response.msg || "Ha ocurrido un error al hacer la peticion"
-            })
+                return ToastAndroid.show("Cuenta verificada exitosamente", ToastAndroid.SHORT)
+            } else {
+                return setState({
+                    ...state,
+                    error: response.msg || "Ha ocurrido un error al hacer la peticion"
+                })
+            }
         }
     }
 
     return {
         handleInput,
-        handleLoginSubmit
+        handleLoginSubmit,
+        handleRegisterSubmit,
+        handleVerifiedSubmit,
+        handleCode
     }
 }

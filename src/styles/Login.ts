@@ -129,5 +129,18 @@ export const styles = StyleSheet.create({
     },
     buttonLogOut: {
         backgroundColor: "red"
+    },
+    loginErrorContainer: {
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    verifiedLoginButton: {
+        paddingHorizontal: 10,
+    },
+    verifiedLoginButtonText: {
+        color: "red",
+        fontWeight: "bold",
+        textDecorationLine: "underline",
+        fontSize: 16
     }
 });
