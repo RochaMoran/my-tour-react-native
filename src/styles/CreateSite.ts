@@ -44,10 +44,8 @@ export const styles = StyleSheet.create({
     height: 470,
   },
   viewContainerMapExpand: {
-    position: "absolute",
-    top: 0,
+    position: "relative",
     width: "100%",
-    height: 600,
     backgroundColor: "white",
     zIndex: 5,
   },
@@ -62,6 +60,7 @@ export const styles = StyleSheet.create({
     fontSize: 15,
   },
   containerHeaderButtonMap: {
+    position: "relative",
     backgroundColor: colors.primary,
     paddingHorizontal: 15,
     paddingVertical: 5,
@@ -69,13 +68,18 @@ export const styles = StyleSheet.create({
   },
   containerHeaderButtonTextMap: {
     color: "white",
+    marginRight: 10
+  },
+  mapDefault: {
+    overflow: "hidden",
+    borderRadius: 15
   },
   map: {
-    alignSelf: "stretch",
     height: 200,
+    alignSelf: "stretch",
   },
   mapExtend: {
-    alignSelf: "stretch",
+    alignSelf: "auto",
     height: 700,
     width: "100%",
   },
@@ -85,8 +89,11 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 7,
     position: "absolute",
-    top: 0,
-    right: 0,
+    top: 5,
+    right: 5,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   labelCreateSite: {
     marginVertical: 0,

@@ -14,6 +14,7 @@ import TimePicker from "../components/atoms/timePicker";
 import useLocation from "../hooks/useLocation";
 import useCreateSite from "../hooks/useCreateSite";
 import TextErrorForm from "../components/atoms/textErrorForm";
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 
 export default function CreateSite() {
   const { countries, site, updateAttributteSite, handleSubmitSite, uploadImage, location, updateCoordinates } = useCreateSite();
@@ -87,7 +88,8 @@ export default function CreateSite() {
           <TextErrorForm error={site.closeTimes.error}/>
           <MapCreateSite update={updateCoordinates} location={location} />
         <TouchableOpacity style={styles.buttonSend} onPress={handleSubmitSite}>
-          <Text style={{color: "white"}}>Enviar</Text>
+          <Text style={{color: "white", marginRight: 10}}>Enviar</Text>
+          <IconFontAwesome name="send" color="white" size={15} />
         </TouchableOpacity>
         </ScrollView>
         <TimePicker
