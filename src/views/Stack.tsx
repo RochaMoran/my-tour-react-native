@@ -6,6 +6,7 @@ import { appState } from "../helpers/const/appState";
 import { colors } from "../styles/global";
 import useUser from "../hooks/useUser";
 import { Text } from "react-native";
+import Loading from "../components/moleculs/loading";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,13 +17,13 @@ export default function StackViews() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 2000);
   }, []);
 
   return (
     <NavigationContainer>
       {loading ? (
-        <Text>Cargando</Text>
+        <Loading />
       ) : (
         <Stack.Navigator initialRouteName="Welcome">
           {isLogged
