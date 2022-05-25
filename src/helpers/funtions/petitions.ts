@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API_URL } from "../const/api";
 
 export const postUser = async (dataParam: any, url: string) => {
   let body = {
@@ -6,12 +7,11 @@ export const postUser = async (dataParam: any, url: string) => {
     password: dataParam.password.value,
   };
   const config = {
-    headers: { "Conte.nt-Type": "application/json" },
-    'Authorization': `Bearer ${process.env.TOKEN}`,
+    headers: { "Conte.nt-Type": "application/json" }
   };
   
   const peticion = await axios.post(
-    `http://192.168.1.6:5500/api/${url}`,
+    `${API_URL}${url}`,
     body,
     config
   );
@@ -20,7 +20,7 @@ export const postUser = async (dataParam: any, url: string) => {
 };
 
 export const getPeticion = async (url:string, config:any) => {
-  const peticion = await axios.get(`http://192.168.1.6:5500/api/${url}`, config);
+  const peticion = await axios.get(`${API_URL}${url}`, config);
   const {data} = peticion;
 
   return data;
@@ -51,7 +51,7 @@ export const createSite = async (data:any) => {
 
     try {
       const response = await fetch(
-        `http://192.168.1.6:5500/api/sites/create`,
+        `${API_URL}sites/create`,
         {
           method: 'POST',
           body: formData,
@@ -61,7 +61,24 @@ export const createSite = async (data:any) => {
 
       return response;
     } catch(e){
-      console.log(e)
         return e;
     }
 }
+
+export const verifiedCode = async (dataParam: any, url: string) => {
+  let body = {
+    email: dataParam.email.value,
+    code: dataParam.code.value,
+  };
+  const config = {
+    headers: { "Conte.nt-Type": "application/json" }
+  };
+  
+  const peticion = await axios.put(
+    `${API_URL}${url}`,
+    body,
+    config
+  );
+  const { data } = peticion;
+  return data;
+};

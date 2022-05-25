@@ -8,7 +8,7 @@ import useField from "../hooks/useField";
 import TextErrorForm from '../components/atoms/textErrorForm';
 import { postUser } from '../helpers/funtions/petitions';
 
-export default function Login() {
+export default function Login({navigation}:any) {
   const [form, setForm] = useState<any>({
     email: {
       value: '',
@@ -58,7 +58,12 @@ export default function Login() {
           />
           <TextErrorForm error={form.password.error} />
           <Text style={styles.forgetPassword}>Olvidaste tu contraseña?</Text>
-          <TextErrorForm cls={styles.centerMessageError} error={form.error} />
+          <View style={styles.loginErrorContainer}>
+            <TextErrorForm cls={styles.centerMessageError} error={form.error} />
+            {form.error === 'Aun no has verificado tu cuenta' && <TouchableOpacity style={styles.verifiedLoginButton} onPress={() => navigation.navigate("VerifiedAccount", {email: form.email.value})}>
+                <Text style={styles.verifiedLoginButtonText}>Verificar</Text>
+              </TouchableOpacity>}
+          </View>
           <TouchableOpacity
             style={[globalStyles.button, styles.buttonLogin]}
             onPress={() => handleLoginSubmit(paramAuth)}

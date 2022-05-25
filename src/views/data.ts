@@ -1,6 +1,6 @@
 import Tabs from '../components/moleculs/tabs';
 import { appState } from '../helpers/const/appState'
-import {Welcome, Register, Login, SeeSite} from './index';
+import {Welcome, Register, Login, SeeSite, VerifiedAccount} from './index';
 
 export const Routes:appState["interfaceRoutes"] = {
     root: [
@@ -16,6 +16,10 @@ export const Routes:appState["interfaceRoutes"] = {
             name: "Login",
             component: Login, 
         },
+        {
+            name: "VerifiedAccount",
+            component: VerifiedAccount
+        }
     ],
     auth: [
         {
