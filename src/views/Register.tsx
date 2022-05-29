@@ -62,7 +62,6 @@ export default function Register({ navigation }: any) {
             onChangeText={(value) => handleInput("password", value)}
           />
           <TextErrorForm error={form.password.error} />
-          <Text style={styles.forgetPassword}>Olvidaste tu contraseña?</Text>
           <TextErrorForm cls={styles.centerMessageError} error={form.error} />
 
           <TouchableOpacity

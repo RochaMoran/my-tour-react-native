@@ -24,17 +24,21 @@ export default function useField (state:any, setState:any) {
             })
             return false;
         } else {
-            setState({
-                ...state,
-                code: {
-                    value: value,
-                    error: ''
-                },
-                error: ""
-            })
-            return true;
+            if(value.length < 7){
+                setState({
+                    ...state,
+                    code: {
+                        value: value,
+                        error: ''
+                    },
+                    error: ""
+                })
+                return true;
+            }
+            return;
         }
     }
+
 
     function handleInput (name:string, value:any) {
         if(name === 'password') {
@@ -126,7 +130,7 @@ export default function useField (state:any, setState:any) {
             } else {
                 return setState({
                     ...state,
-                    error: response.msg || "Ha ocurrido un error al hacer la peticion"
+                    error: response.msg || response.errors.msg || "Ha ocurrido un error al hacer la peticion"
                 })
             }
 
@@ -134,6 +138,7 @@ export default function useField (state:any, setState:any) {
     }
 
     async function handleVerifiedSubmit (objectParams:any) {
+        console.log(state)
         if(objectParams.validated){
             setState({
                 ...state,
