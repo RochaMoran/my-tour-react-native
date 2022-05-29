@@ -1,5 +1,4 @@
-import { View, Text, Image, TouchableOpacity, Alert } from "react-native";
-import { Link } from "@react-navigation/native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { styles } from "../styles/Welcome";
 import { globalStyles } from "../styles/global";
 
@@ -18,9 +17,9 @@ export default function Welcome({navigation}:any) {
         <Text style={styles.subtitleDinamic}>Intuitivo y Dinamico</Text>
         <TouchableOpacity
           style={[globalStyles.button, styles.buttonGoogle]}
-          onPress={() => Alert.alert("Simple Button pressed")}
+          onPress={() => navigation.navigate('Login')}
         >
-          <Text style={styles.buttonGoogleText}>Iniciar con google</Text>
+          <Text style={styles.buttonGoogleText}>Iniciar Sesión</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[globalStyles.button, styles.buttonCreateAccount]}
@@ -29,10 +28,7 @@ export default function Welcome({navigation}:any) {
           <Text style={styles.buttonCreateAccountText}>Crear Cuenta</Text>
         </TouchableOpacity>
         <Text style={styles.linkAlreadyAccount}>
-          Ya tienes una cuenta?{" "}
-          <Link style={styles.linkLogin} to={{ screen: "Login" }}>
-            Iniciar Sesión
-          </Link>
+          ve y pasea por el mundo
         </Text>
       </View>
     </View>

@@ -33,7 +33,7 @@ export default function VerifiedAccount ({route}:any) {
             <View style={styles.verifiedBody}>
                 <Text style={styles.verifiedTitleBody}>Verificar codigo</Text>
                 <Text style={styles.verifiedTextBody}>Ingresa el codigo de 6 o 5 digitos que recibiste en tu email</Text>
-                <TextInput keyboardType="numeric" style={styles.verifiedInputBody} placeholder="******" onChangeText={(value) => handleCode(value)}/>
+                <TextInput maxLength={6} defaultValue={form.code.value} contextMenuHidden={true} keyboardType="numeric" style={styles.verifiedInputBody} placeholder="******" onChangeText={(value) => handleCode(value)}  />
                 <TextErrorForm cls={{textAlign: "center", marginVertical: 5}} error={form.code.error || form.email.error || form.error}/>
                 <TouchableOpacity style={styles.verifiedButtonBody} onPress={() => handleVerifiedSubmit(paramAuth)}>
                     <Text style={styles.verifiedTextButtonBody}>Continuar</Text>
