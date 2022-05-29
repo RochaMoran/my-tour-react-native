@@ -62,10 +62,8 @@ export const styles = StyleSheet.create({
         alignItems: "center",
     },
     siteResultImage: {
-        width: "35%",
-        height: "100%",
-        borderRadius: 5,
-        resizeMode: "cover"
+        width: 120, height: 100, borderRadius: 5,
+        resizeMode: "cover", marginRight: 10
     },
     titleItemSite: {
         fontWeight: "bold",
