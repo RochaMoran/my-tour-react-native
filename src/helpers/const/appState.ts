@@ -56,8 +56,7 @@ export interface appState {
         name?: string,
         country?: string,
         imgUrl?: any,
-        type: string,
-        redirectSite?: any
+        type: string
     },
     interfaceContainerSite: {
         type: string,

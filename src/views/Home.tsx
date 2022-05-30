@@ -6,7 +6,7 @@ import HeaderHome from "../components/organims/headerHome";
 import getData from "../hooks/getData";
 import Spinner from "../components/moleculs/spinner";
 
-export default function Home({navigation}:any) {
+export default function Home() {
   const { data } = getData('sites/')
 
   return (
@@ -15,7 +15,7 @@ export default function Home({navigation}:any) {
       <HeaderHome imgUrl="http://c.files.bbci.co.uk/E02E/production/_102809375_machu.jpg" title="Pasea por el mundo..." subTitle="El viajero ve lo que ve, el turista ve lo que ha venido a ver" />
       {
         data ? (
-          <BodyHome sites={data.sites} redirectSite={navigation} />          
+          <BodyHome sites={data.sites} />          
         ) : <Spinner />
       }
     </ScrollView>

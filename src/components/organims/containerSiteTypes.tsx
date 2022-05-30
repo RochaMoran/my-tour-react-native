@@ -4,7 +4,6 @@ import Site from "../moleculs/site";
 import ContainerSites from "./containerSites";
 
 export default function ContainerSitesType({
-  redirectSite,
   sites,
   title,
   type,
@@ -19,7 +18,6 @@ export default function ContainerSitesType({
           name={site.name}
           imgUrl={site.imgUrl}
           country={site.country}
-          redirectSite={redirectSite}
         />
       ))}
     </ContainerSites>

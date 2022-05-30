@@ -82,3 +82,10 @@ export const verifiedCode = async (dataParam: any, url: string) => {
   const { data } = peticion;
   return data;
 };
+
+export const deletePeticion = async (url:string, config:any) => {
+  const peticion = await axios.delete(`${API_URL}${url}`, config);
+  const {data} = peticion;
+
+  return data;
+}
