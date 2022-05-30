@@ -1,13 +1,9 @@
 import { Alert, Modal, Text, TouchableOpacity, View, ToastAndroid } from "react-native";
-import { deletePeticion } from "../../helpers/funtions/petitions";
+import useSites from "../../hooks/useSites";
 import { styles } from "../../styles/MySites";
 
 export default function ModalMessage ({isModalShow, setIsModalShow, id}:any) { 
-    async function destroySite () {
-      await deletePeticion(`sites/delete/${id}`, {})
-        .then(resp => resp.ok ? ToastAndroid.show("Sitio Eliminado", ToastAndroid.BOTTOM) : ToastAndroid.show("Ha ocurrido un error al eliminar el sitio", ToastAndroid.BOTTOM))
-    }
-
+  const { deleteSite } = useSites()
   return (
         <Modal animationType="slide"
           transparent={true}
@@ -24,7 +20,7 @@ export default function ModalMessage ({isModalShow, setIsModalShow, id}:any) {
                       Cancelar
                     </Text>
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={destroySite} style={[styles.modalButton, styles.modalButtonPrimary]}>
+                  <TouchableOpacity onPress={ () => deleteSite(id)} style={[styles.modalButton, styles.modalButtonPrimary]}>
                     <Text style={styles.textButtonPrimary}>
                       Aceptar
                     </Text>

@@ -24,7 +24,7 @@ export default function useTime(site: appState["interfaceSiteCreate"], setSite: 
   const updateShow = (close: boolean, open:boolean) => {
     setShow({close: close, open: open})
   }
-
+  
   const updateDate = (event: any, value: any, type: string) => {
     if (Platform.OS === "android") {
       setShow({
@@ -32,7 +32,8 @@ export default function useTime(site: appState["interfaceSiteCreate"], setSite: 
         close: false,
       });
 
-      setSite(type, value);
+      let date = new Date()
+      setSite(type, value ? `${value.getHours()}:${value.getMinutes()}` : `${date.getHours()}:${date.getMinutes()}`);
     }
   };
 

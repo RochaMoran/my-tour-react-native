@@ -48,6 +48,7 @@ export interface appState {
             open: boolean,
             close: boolean
         },
+        updateShow: any,
         updateOpen: any,
         updateClose: any
     },
@@ -74,5 +75,34 @@ export interface appState {
         title?: string,
         subTitle: string,
         stylesHeader?:any
+    },
+    interfaceOneSite: {
+        name: string,
+        description: string,
+        imgUrl: string,
+        country: string,
+        covidMeasures: {
+            vaccineCovid: boolean,
+            faceMask: boolean,
+            statusOpen: boolean,
+        },
+        attentionSchedules: {
+            open: string,
+            close: string
+        },
+        location: {
+            latitude: number,
+            longitude: number,
+            latitudeDelta: number,
+            longitudeDelta: number
+        },
+        _id: number,
+        created_by: number,
+        createdAt: Date,
+        updateAt: Date
+    },
+    interfaceSiteContext: {
+        all: Array<appState["interfaceOneSite"]>,
+        user: Array<appState["interfaceOneSite"]>
     }
 }
