@@ -12,13 +12,15 @@ import SwitchControl from "../components/atoms/switchControl";
 import TimeControl from "../components/atoms/timeControl";
 import TimePicker from "../components/atoms/timePicker";
 import useLocation from "../hooks/useLocation";
-import useCreateSite from "../hooks/useCreateSite";
+import useCreateSite from "../hooks/useSites";
 import TextErrorForm from "../components/atoms/textErrorForm";
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 
 export default function CreateSite() {
   const { countries, site, updateAttributteSite, handleSubmitSite, uploadImage, location, updateCoordinates } = useCreateSite();
   const { updateOpen, updateClose, updateShow, show } = useTime(site, updateAttributteSite);
+
+  // console.log(site.openTimes.value, site.closeTimes.value)
 
   return (
     <View style={[globalStyles.container, styles.container]}>
@@ -32,6 +34,7 @@ export default function CreateSite() {
             placeholder="Ejemplo: Río San juan"
             autoCapitalize="none"
             autoCompleteType="off"
+            defaultValue={site.name.value}
             onChangeText={text => updateAttributteSite("name", text)}
           />
           <TextErrorForm error={site.name.error}/>
@@ -43,6 +46,7 @@ export default function CreateSite() {
             autoCompleteType="off"
             multiline
             numberOfLines={2}
+            defaultValue={site.description.value}
             onChangeText={text => updateAttributteSite("description", text)}
           />
           <TextErrorForm error={site.description.error}/>
@@ -78,11 +82,13 @@ export default function CreateSite() {
           />
           <TimeControl
             title="Horarios Apertura"
+            value={site.openTimes.value}
             onPress={() => updateShow(false, true)}
           />
           <TextErrorForm error={site.openTimes.error}/>
           <TimeControl
             title="Horarios Cierre"
+            value={site.closeTimes.value}
             onPress={() => updateShow(true, false)}
           />
           <TextErrorForm error={site.closeTimes.error}/>
@@ -94,6 +100,7 @@ export default function CreateSite() {
         </ScrollView>
         <TimePicker
           show={show}
+          updateShow={updateShow}
           updateClose={updateClose}
           updateOpen={updateOpen}
         />

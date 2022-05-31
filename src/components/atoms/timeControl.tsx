@@ -6,6 +6,7 @@ import { styles } from "../../styles/CreateSite";
 
 export default function TimeControl({
   title,
+  value,
   ...rest
 }: appState["interfaceTimeControl"]) {
   return (
@@ -14,7 +15,7 @@ export default function TimeControl({
     >
       <Text style={styles.vacuneText}>{title}</Text>
       <TouchableOpacity {...rest}>
-        <Icon name="time-outline" size={25} color="#888" />
+        {value ? <Text>{value}</Text> : <Icon name="time-outline" size={25} color="#888" />}
       </TouchableOpacity>
     </View>
   );

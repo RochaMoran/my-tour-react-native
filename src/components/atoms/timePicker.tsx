@@ -3,6 +3,7 @@ import { appState } from "../../helpers/const/appState";
 
 export default function TimePicker({
   show,
+  updateShow,
   updateOpen,
   updateClose,
 }: appState["interfaceTimePicker"]) {
@@ -14,6 +15,7 @@ export default function TimePicker({
           onChange={show.open ? updateOpen : updateClose}
           mode={"time"}
           is24Hour={true}
+          onTouchCancel={ () => console.log('Hola')}
         />
       )}
     </>
