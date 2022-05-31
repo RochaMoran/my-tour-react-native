@@ -4,7 +4,7 @@ import { globalStyles } from "../styles/global";
 import { styles } from "../styles/CreateSite";
 import { styles as stylesLogin } from "../styles/Login";
 import { Picker } from "@react-native-picker/picker";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MapCreateSite from "../components/moleculs/mapCreateSite";
 import useTime from "../hooks/useTime";
 import { appState } from "../helpers/const/appState";
@@ -12,16 +12,14 @@ import SwitchControl from "../components/atoms/switchControl";
 import TimeControl from "../components/atoms/timeControl";
 import TimePicker from "../components/atoms/timePicker";
 import useLocation from "../hooks/useLocation";
-import useCreateSite from "../hooks/useSites";
+import useSites from "../hooks/useSites";
 import TextErrorForm from "../components/atoms/textErrorForm";
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 
-export default function CreateSite() {
-  const { countries, site, updateAttributteSite, handleSubmitSite, uploadImage, location, updateCoordinates } = useCreateSite();
+export default function CreateSite({route}:any) {
+  const { countries, site, updateAttributteSite, handleSubmitSite, uploadImage, location, updateCoordinates } = useSites(route?.params?.siteParam);
   const { updateOpen, updateClose, updateShow, show } = useTime(site, updateAttributteSite);
-
-  // console.log(site.openTimes.value, site.closeTimes.value)
-
+  
   return (
     <View style={[globalStyles.container, styles.container]}>
       <HeaderView title="Crear Sitio" create={true} action={uploadImage} image={site.image.value.uri} />

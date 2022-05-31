@@ -8,19 +8,24 @@ import {
   MediaTypeOptions,
 } from "expo-image-picker";
 import useLocation from "./useLocation";
-import { createSite } from "../helpers/funtions/petitions";
+import { createSite, updateSite } from "../helpers/funtions/petitions";
 import useUser from "./useUser";
 import useCountries from "./useCountries";
 import { appState } from "../helpers/const/appState";
 import { defaultCreateSite } from "../helpers/const/defaultCreateSite";
 
-export default function useSites() {
+export default function useSites(siteParam?:any) {
   const { sites, setSites } = useContext<any>(ContextSites);
-  const { location, updateCoordinates } = useLocation();
+  const { location, updateCoordinates } = useLocation(siteParam?.location);
   const { jwt } = useUser();
   const { countries } = useCountries();
   const [isCreateOrUpdate, setIsCreateOrUpdate] = useState<boolean>(false)
-  const [site, setSite] = useState<any>({...defaultCreateSite, createdBy: jwt.user._id});
+  const defaultValueSite = defaultCreateSite(siteParam)
+  const [site, setSite] = useState<any>({...defaultValueSite, createdBy: jwt.user._id});
+
+  useEffect(() => {
+    setSite({...defaultValueSite, createdBy: jwt.user._id})
+  }, [siteParam])
 
   useEffect(() => {
     async function getData() {
@@ -102,10 +107,10 @@ export default function useSites() {
       validateText("openTimes") &&
       validateText("closeTimes")
     ) {
-      let resp = await createSite({ site, location, jwt });
+      let resp = site?._id ? await updateSite({ site, location, jwt }) : await createSite({ site, location, jwt })
 
       if (resp.ok) {
-        ToastAndroid.show("Sitio creado exitosamente", ToastAndroid.SHORT);
+        ToastAndroid.show(site?._id ? "Sitio modificado exitosamente" : "Sitio creado exitosamente", ToastAndroid.SHORT);
         setIsCreateOrUpdate(value => !value)
       } else {
         ToastAndroid.show(
@@ -133,11 +138,7 @@ export default function useSites() {
   }
 
   function validateImage() {
-    if (
-      (site.image.value.uri ||
-        site.image.value.name ||
-        site.image.value.type) === ""
-    ) {
+    if (!site.image.value.uri) {
       setSite({
         ...site,
         image: {

@@ -83,9 +83,9 @@ export default function SiteSearch({ site, mySites }: any) {
           <TouchableOpacity style={styles.actionsItem} onPress={deleteSite}>
             <IconA name="delete" size={20} color="red" />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.actionsItem}>
+          <Link to={{screen: 'CreateSite', params: {siteParam: site}}} style={styles.actionsItem}>
             <IconA name="edit" size={20} color="blue" />
-          </TouchableOpacity>
+          </Link>
           <ModalMessage isModalShow={isModalShow} setIsModalShow={setIsModalShow} id={site._id} />
         </View>
       )}

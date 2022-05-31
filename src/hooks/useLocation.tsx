@@ -4,8 +4,8 @@ import {
   requestForegroundPermissionsAsync,
 } from "expo-location";
 
-export default function useLocation() {
-  const [location, setLocation] = useState<any>({
+export default function useLocation(locationParam?:any) {
+  const [location, setLocation] = useState<any>(locationParam ? {...locationParam} : {
     latitude: 42.30695,
     longitude: -115.6116,
     latitudeDelta: 0.0922,
