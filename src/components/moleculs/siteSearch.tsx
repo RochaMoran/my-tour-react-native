@@ -72,7 +72,7 @@ export default function SiteSearch({ site, mySites }: any) {
                 Abre: {site.attentionSchedules.open}
               </Text>
               <Text style={styles.siteItemText}>
-                Cierra: {site.attentionSchedules.open}
+                Cierra: {site.attentionSchedules.close}
               </Text>
             </View>
           </View>
@@ -83,7 +83,7 @@ export default function SiteSearch({ site, mySites }: any) {
           <TouchableOpacity style={styles.actionsItem} onPress={deleteSite}>
             <IconA name="delete" size={20} color="red" />
           </TouchableOpacity>
-          <Link to={{screen: 'CreateSite', params: {siteParam: site}}} style={styles.actionsItem}>
+          <Link to={{screen: 'UpdateSite', params: {siteParam: site}}} style={styles.actionsItem}>
             <IconA name="edit" size={20} color="blue" />
           </Link>
           <ModalMessage isModalShow={isModalShow} setIsModalShow={setIsModalShow} id={site._id} />
