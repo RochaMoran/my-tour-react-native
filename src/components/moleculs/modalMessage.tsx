@@ -1,9 +1,9 @@
 import { Alert, Modal, Text, TouchableOpacity, View, ToastAndroid } from "react-native";
-import useSites from "../../hooks/useSites";
+import useSite from "../../hooks/useSite";
 import { styles } from "../../styles/MySites";
 
 export default function ModalMessage ({isModalShow, setIsModalShow, id}:any) { 
-  const { deleteSite } = useSites()
+  const { deleteSite } = useSite()
   return (
         <Modal animationType="slide"
           transparent={true}

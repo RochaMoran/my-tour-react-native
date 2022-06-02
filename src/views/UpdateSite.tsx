@@ -15,15 +15,14 @@ import useLocation from "../hooks/useLocation";
 import useSite from "../hooks/useSite";
 import TextErrorForm from "../components/atoms/textErrorForm";
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
-import { useIsFocused } from '@react-navigation/native'
 
-export default function CreateSite() {
-  const { countries, site, updateAttributteSite, handleSubmitSite, uploadImage, location, updateCoordinates } = useSite();
+export default function UpdateSite({route}:any) {
+  const { countries, site, updateAttributteSite, handleSubmitSite, uploadImage, location, updateCoordinates } = useSite(route.params.siteParam);
   const { updateOpen, updateClose, updateShow, show } = useTime(site, updateAttributteSite);
 
   return (
     <View style={[globalStyles.container, styles.container]}>
-      <HeaderView title="Crear Sitio" create={true} action={uploadImage} image={site.image.value.uri} />
+      <HeaderView title="Actualizar Sitio" create={true} action={uploadImage} image={site.image.value.uri} />
       <View style={styles.bodyCreateSite}>
         <TextErrorForm error={site.image.error}/>
         <ScrollView>

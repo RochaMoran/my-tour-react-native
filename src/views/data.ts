@@ -25,10 +25,6 @@ export const Routes:appState["interfaceRoutes"] = {
         {
             name: "Tabs",
             component: Tabs, 
-        },
-        {
-            name: "SeeSite",
-            component: SeeSite, 
-        },
+        }
     ]
 }
