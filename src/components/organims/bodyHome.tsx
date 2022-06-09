@@ -7,7 +7,6 @@ export default function BodyHome({sites }: any) {
     <View style={styles.bodyHome}>
       <ContainerSitesType type="lg" title="Los mas Visitados" sites={sites}/>
       <ContainerSitesType type="hg" title="Los mas Nuevo" sites={sites}/>
-      <ContainerSitesType type="lg" title="Los mas barato" sites={sites}/>
     </View>
   );
 }

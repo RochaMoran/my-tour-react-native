@@ -5,6 +5,7 @@ import { appState } from "../../helpers/const/appState";
 import { Link } from "@react-navigation/native";
 
 export default function Site ({id, name, country, imgUrl, type }:appState["interfaceSiteHome"]) {
+
     return (
       <Link to={{screen: 'SeeSite', params: {id: id}}} style={{marginRight: 10}}>
         <View style={type === "lg" ? styles.lgCard : styles.highCard}>
