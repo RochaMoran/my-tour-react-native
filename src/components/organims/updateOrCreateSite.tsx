@@ -31,7 +31,6 @@ export default function UpdateOrCreateSite ({siteParam, title}:any) {
           <TextInput
             style={[stylesLogin.inputLogin, styles.inputCreateSite]}
             placeholder="Ejemplo: Río San juan"
-            autoCapitalize="none"
             autoCompleteType="off"
             defaultValue={site.name.value}
             onChangeText={text => updateAttributteSite("name", text)}
@@ -41,7 +40,6 @@ export default function UpdateOrCreateSite ({siteParam, title}:any) {
           <TextInput
             style={[stylesLogin.inputLogin, styles.inputCreateSite]}
             placeholder="Ejemplo: un lugar para los niños, atractivo y turístico"
-            autoCapitalize="none"
             autoCompleteType="off"
             multiline
             numberOfLines={2}

@@ -77,14 +77,15 @@ export const styles = StyleSheet.create({
     containerResults: {
         height: "80%"
     },
+    infoContainer: {
+        backgroundColor: "red"
+    },
     containerBasicInfo: {
-
     },
     containerCovidInfo: {
 
     },
     containerStatusInfo: {
-
     },
     statusTime: {
         flexDirection: "row"
@@ -113,11 +114,36 @@ export const styles = StyleSheet.create({
         marginTop: 10,
         borderRadius: 10,
         padding: 5,
-        justifyContent: "center",
+        justifyContent: "space-between",
         alignItems: "center",
-        backgroundColor: "white"
+        // backgroundColor: "white"
     },
     actionsItem: {
-        marginHorizontal: 10
+        marginHorizontal: 10,
+        flexDirection: "row",
+        paddingHorizontal: 8,
+        paddingVertical: 5,
+        borderRadius: 5,
+        justifyContent: "space-between",
+        alignItems: "center"
+    },
+    actionsDelete: {
+        backgroundColor: "transparent",
+        borderWidth: 1,
+        borderColor: colors.primary
+    },
+    actionsTextColorPrimary: {
+        color: colors.primary
+    },
+    actionsTextColorSecondary: {
+
+    },
+    actionsEdit: {
+        backgroundColor: colors.primary,
+    },
+    actionsTextColor: {
+        color: "white",
+        marginHorizontal: 5,
+        fontWeight: "bold"
     }
 });

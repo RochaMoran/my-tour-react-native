@@ -6,7 +6,7 @@ import { styles } from "../styles/MySites";
 import useSites from "../hooks/useSites";
 import { useState } from "react";
 
-export default function MySites() {
+export default function MySites({navigation}:any) {
   const { sitesByUser } = useSites()
 
   return (
@@ -17,7 +17,7 @@ export default function MySites() {
         <ScrollView style={stylesSearch.containerResults}>
           {
             sitesByUser.length > 0 && sitesByUser.map((site:appState["interfaceSiteCreate"], index:number) => (
-              <SiteSearch site={site} key={index} mySites={true} />
+              <SiteSearch site={site} key={index} mySites={true} navigation={navigation} />
             ))
           }
         </ScrollView>
