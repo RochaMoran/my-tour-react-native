@@ -34,7 +34,7 @@ export default function SeeSite({ route }: any) {
               <Text>Abierto: {data.site?.covidMeasures.statusOpen ? "Sí" : "No"}</Text>
               <Text>Mascarilla: {data.site?.covidMeasures.faceMask ? "Sí" : "No"}</Text>
               <Text>Vacuna: {data.site?.covidMeasures.vaccineCovid ? "Sí" : "No"}</Text>
-              <MapCreateSite />
+              <MapCreateSite location={data.site.location} />
             </ScrollView>
           </>
         )

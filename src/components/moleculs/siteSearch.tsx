@@ -8,19 +8,20 @@ import { appState } from "../../helpers/const/appState";
 import truncateText from "../../helpers/funtions/truncateText";
 import { Link } from "@react-navigation/native";
 import ModalMessage from "./modalMessage";
+import { colors } from "../../styles/global";
 
-export default function SiteSearch({ site, mySites }: any) {
-  const [isModalShow, setIsModalShow] = useState<boolean>(false)
+export default function SiteSearch({ site, mySites, navigation }: any) {
+  const [isModalShow, setIsModalShow] = useState<boolean>(false);
 
-  function deleteSite () {
-    setIsModalShow(true)
+  function deleteSite() {
+    setIsModalShow(true);
   }
 
   return (
     <View style={styles.containerSiteResult}>
       {site && (
-        <Link to={{screen: 'SeeSite', params: {id: site._id}}}>
-        <View style={styles.siteResult}>
+        <Link to={{ screen: "SeeSite", params: { id: site._id } }}>
+          <View style={styles.siteResult}>
             <Image
               style={styles.siteResultImage}
               source={{
@@ -32,7 +33,9 @@ export default function SiteSearch({ site, mySites }: any) {
                 <Text style={styles.titleItemSite}>
                   {truncateText(site.name)}
                 </Text>
-                <Text style={styles.siteItemText}>{site.country}</Text>
+                <Text style={styles.siteItemText}>
+                  {truncateText(site.country)}
+                </Text>
               </View>
               <View style={styles.containerCovidInfo}>
                 <Text style={styles.titleItemSite}>Covid Medidas</Text>
@@ -42,10 +45,14 @@ export default function SiteSearch({ site, mySites }: any) {
                     style={[
                       styles.covidItemTex,
                       styles.siteItemText,
-                      site.covidMeasures.vaccineCovid ? styles.statusObligatory : styles.statusOptional,
+                      site.covidMeasures.vaccineCovid
+                        ? styles.statusObligatory
+                        : styles.statusOptional,
                     ]}
                   >
-                    {site.covidMeasures.vaccineCovid ? "Obligatorio" : "Opcional"}
+                    {site.covidMeasures.vaccineCovid
+                      ? "Obligatorio"
+                      : "Opcional"}
                   </Text>
                 </View>
                 <View style={styles.covidItem}>
@@ -54,7 +61,9 @@ export default function SiteSearch({ site, mySites }: any) {
                     style={[
                       styles.covidItemTex,
                       styles.siteItemText,
-                      site.covidMeasures.faceMask ? styles.statusObligatory : styles.statusOptional,
+                      site.covidMeasures.faceMask
+                        ? styles.statusObligatory
+                        : styles.statusOptional,
                     ]}
                   >
                     {site.covidMeasures.faceMask ? "Obligatorio" : "Opcional"}
@@ -64,7 +73,14 @@ export default function SiteSearch({ site, mySites }: any) {
             </View>
             <View style={styles.containerStatusInfo}>
               <Text style={styles.titleItemSite}>Estado Apertura</Text>
-              <Text style={[styles.siteItemText, site.covidMeasures.statusOpen ? styles.siteStatusOpen : styles.siteStatusClose]}>
+              <Text
+                style={[
+                  styles.siteItemText,
+                  site.covidMeasures.statusOpen
+                    ? styles.siteStatusOpen
+                    : styles.siteStatusClose,
+                ]}
+              >
                 {site.covidMeasures.statusOpen ? "Abierto" : "Cerrado"}
               </Text>
               <Text style={styles.titleItemSite}>Horarios:</Text>
@@ -80,13 +96,38 @@ export default function SiteSearch({ site, mySites }: any) {
       )}
       {mySites && (
         <View style={styles.containerActions}>
-          <TouchableOpacity style={styles.actionsItem} onPress={deleteSite}>
-            <IconA name="delete" size={20} color="red" />
+          <TouchableOpacity
+            style={[styles.actionsItem, styles.actionsDelete]}
+            onPress={deleteSite}
+          >
+            <IconA name="delete" size={18} color={colors.primary} />
+            <Text
+              style={[styles.actionsTextColor, styles.actionsTextColorPrimary]}
+            >
+              Eliminar
+            </Text>
           </TouchableOpacity>
-          <Link to={{screen: 'UpdateSite', params: {siteParam: site}}} style={styles.actionsItem}>
-            <IconA name="edit" size={20} color="blue" />
-          </Link>
-          <ModalMessage isModalShow={isModalShow} setIsModalShow={setIsModalShow} id={site._id} />
+          <TouchableOpacity
+            style={[styles.actionsItem, styles.actionsEdit]}
+            onPress={() =>
+              navigation.navigate("UpdateSite", { siteParam: site })
+            }
+          >
+            <IconFA5 name="edit" size={16} color="white" />
+            <Text
+              style={[
+                styles.actionsTextColor,
+                styles.actionsTextColorSecondary,
+              ]}
+            >
+              Editar
+            </Text>
+          </TouchableOpacity>
+          <ModalMessage
+            isModalShow={isModalShow}
+            setIsModalShow={setIsModalShow}
+            id={site._id}
+          />
         </View>
       )}
     </View>
