@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
         position: "relative",
     },
     header: {
+        position: "relative"
     },
     headerImage: {
         paddingHorizontal: 20,
@@ -16,11 +17,17 @@ export const styles = StyleSheet.create({
     headerTitle: {
         fontSize: 30,
         fontWeight: "bold",
-        color: "white"
+        color: "white",
+        textShadowColor: "rgba(0, 0, 0, 0.7)",
+        textShadowOffset: {width: 1, height: 1},
+        textShadowRadius: 10
     },
     headerContent: {
         fontSize: 15,
-        color: "white"
+        color: "white",
+        textShadowColor: "rgba(0, 0, 0, 0.7)",
+        textShadowOffset: {width: 1, height: 1},
+        textShadowRadius: 10
     },
     bodyHome: {
         backgroundColor: "white",
@@ -48,7 +55,7 @@ export const styles = StyleSheet.create({
         padding: 10
     },
     lgCard: {
-        height: 130,
+        height: 150,
         width: 320,
         marginRight: 20,
         borderRadius: 15,
@@ -76,8 +83,8 @@ export const styles = StyleSheet.create({
         marginVertical: 0
     },
     highCard: {
-        height: 200,
-        width: 150,
+        height: 220,
+        width: 200,
         marginRight: 20,
         borderRadius: 15,
         overflow: "hidden"

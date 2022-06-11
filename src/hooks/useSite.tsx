@@ -96,6 +96,7 @@ export default function useSite (siteParam?:any) {
       if (resp.ok) {
         ToastAndroid.show(site?._id ? "Sitio modificado exitosamente" : "Sitio creado exitosamente", ToastAndroid.SHORT);
         await createdOrModifiedSites()
+        setSite({...defaultCreateSite(siteParam), createdBy: jwt.user._id})
       } else {
         ToastAndroid.show(
           "Ha ocurrido un error al crear el sitio",

@@ -33,7 +33,7 @@ export default function MapCreateSite({location, update}:any) {
           style={{ flex: 1 }}
         >
           {
-            update &&  <Marker
+            update ?  <Marker
             coordinate={location}
             draggable={true}
             onDragEnd={(e) =>
@@ -42,7 +42,10 @@ export default function MapCreateSite({location, update}:any) {
                 e.nativeEvent.coordinate.longitude
               )
             }
-          />
+          /> : <Marker
+                coordinate={location}
+                image={require("../../assets/ellipse.png")}
+              />
           }
         </MapView>
       </View>
