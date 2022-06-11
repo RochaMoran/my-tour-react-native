@@ -74,7 +74,9 @@ export interface appState {
         imgUrl?: string,
         title?: string,
         subTitle: string,
-        stylesHeader?:any
+        stylesHeader?:any,
+        addStyles?: any,
+        children?: JSX.Element
     },
     interfaceOneSite: {
         name: string,
