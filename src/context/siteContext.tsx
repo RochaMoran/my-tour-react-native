@@ -8,16 +8,20 @@ export const ContextSites = createContext({})
 export default function SitesContextProvider({children}:any) {  
   const [sites, setSites] = useState<appState["interfaceSiteContext"]>({
     all: [],
-    user: []
+    user: [],
+    page: 1,
+    totalPages: 0
   })
   const { jwt } = useUser();
 
   useEffect(() => {
     async function getData() {
-      await getPeticion("sites/", {}).then((resp) => {
+      await getPeticion("sites/all", {}).then((resp) => {
         setSites({
-          all: resp.sites,
-          user: resp.sites.filter((site:appState["interfaceOneSite"]) => site.created_by === jwt.user._id)
+          all: resp.docs,
+          user: resp.docs.filter((site:appState["interfaceOneSite"]) => site.created_by === jwt.user._id),
+          page: resp.page,
+          totalPages: resp.totalPages
         })
       });
     }

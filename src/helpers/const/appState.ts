@@ -12,7 +12,7 @@ export interface appState {
     },
     interfaceSite: {
         title: string,
-        children: any,
+        children?: any,
         [x: string]: any,
     },
     interfaceHeaderView: {
@@ -64,6 +64,7 @@ export interface appState {
         title: string,
         sites: any,
         redirectSite?: any,
+        getMoreSites?: any
     },
     interfaceMySites: {
         site: appState["interfaceSiteCreate"],
@@ -105,6 +106,8 @@ export interface appState {
     },
     interfaceSiteContext: {
         all: Array<appState["interfaceOneSite"]>,
-        user: Array<appState["interfaceOneSite"]>
+        user: Array<appState["interfaceOneSite"]>,
+        page: number,
+        totalPages: number
     }
 }
